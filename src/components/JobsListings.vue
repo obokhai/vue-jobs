@@ -14,6 +14,8 @@ defineProps({
     }
 })
 
+// axios.defaults.headers.common['X-Jsio-Token'] = '5136442bcdf21bff99ea3197b29c1b91'
+
 const state = reactive({
     jobs:[],
     isLoading:true
@@ -22,7 +24,9 @@ const state = reactive({
 onMounted(async () =>{
     try{
         const response = await axios.get('/api/jobs')
-        state.jobs = response.data;
+
+        state.jobs = response.data
+
     }catch(error){
         console.error('Error Fetching Jobs', error)
     }finally{
@@ -43,7 +47,7 @@ onMounted(async () =>{
              </div>
              <!-- Show Job Listing when done loading -->
             <div v-else class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <JobListing v-for="job in state.jobs.slice(0, limit || state.jobs.length)" :key="job.id" :job="job" />
+                <JobListing v-for="job in state.jobs.slice(0, limit)" :key="job.id" :job="job" />
             </div>
         </div>
     </section>

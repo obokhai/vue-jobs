@@ -5,6 +5,9 @@ import { useRoute,useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import axios from 'axios';
 
+
+axios.defaults.headers.common['X-Jsio-Token'] = '5136442bcdf21bff99ea3197b29c1b91'
+
 const route = useRoute();
 const router = useRouter();
 
@@ -45,7 +48,7 @@ const handleSubmit= async () => {
     }
   }
  try{
-  const response = await axios.put(`/api/jobs/${jobId}`, updatedJob);
+  const response = await axios.put(`'/api/jobs/'${jobId}`, updatedJob);
   toast.success('Job Updated Successfully')
   router.push(`/jobs/${response.data.id}`)
  }catch(error){
