@@ -110,8 +110,8 @@ onMounted( async () => {
               <input
               v-model:="form.title "
                 type="text"
-                id="name"
-                name="name"
+                id="title"
+                name="title"
                 class="border rounded w-full py-2 px-3 mb-2"
                 placeholder="eg. Beautiful Apartment In Miami"
                 required
