@@ -23,7 +23,7 @@ const state = reactive({
 
 onMounted(async () =>{
     try{
-        const response = await axios.get('/api/jobs')
+        const response = await axios.get('https://vue-jobs-06o8.onrender.com/jobs')
 
         state.jobs = response.data
 

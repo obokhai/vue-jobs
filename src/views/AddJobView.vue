@@ -5,8 +5,6 @@ import { useToast } from 'vue-toastification';
 import axios from 'axios';
 
 
-// axios.defaults.headers.common['X-Jsio-Token'] = '5136442bcdf21bff99ea3197b29c1b91'
-
 const form = reactive({
   type: 'Full-Time',
   title: '',
@@ -37,7 +35,7 @@ const handleSubmit= async () => {
     }
   }
  try{
-  const response = await axios.post('/api/jobs',newJob)
+  const response = await axios.post('https://vue-jobs-06o8.onrender.com/jobs',newJob)
         state.jobs = response.data
   toast.success('Job Added Successfully')
   router.push(`/jobs/${state.jobs.id}`)

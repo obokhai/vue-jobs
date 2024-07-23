@@ -6,8 +6,6 @@ import { useToast } from 'vue-toastification';
 import axios from 'axios';
 
 
-axios.defaults.headers.common['X-Jsio-Token'] = '5136442bcdf21bff99ea3197b29c1b91'
-
 const route = useRoute();
 const router = useRouter();
 
@@ -48,7 +46,7 @@ const handleSubmit= async () => {
     }
   }
  try{
-  const response = await axios.put(`'/api/jobs/'${jobId}`, updatedJob);
+  const response = await axios.put(`'https://vue-jobs-06o8.onrender.com/jobs/'${jobId}`, updatedJob);
   toast.success('Job Updated Successfully')
   router.push(`/jobs/${response.data.id}`)
  }catch(error){
@@ -57,9 +55,10 @@ const handleSubmit= async () => {
  }
 };
 
+
 onMounted( async () => {
     try {
-        const response = await axios.get(`/api/jobs/${jobId}`);
+        const response = await axios.get(`https://vue-jobs-06o8.onrender.com/jobs/${jobId}`);
         state.job= response.data;
         form.type = state.job.type
         form.title= state.job.title
@@ -110,8 +109,8 @@ onMounted( async () => {
               <input
               v-model:="form.title "
                 type="text"
-                id="name"
-                name="name"
+                id="title"
+                name="title"
                 class="border rounded w-full py-2 px-3 mb-2"
                 placeholder="eg. Beautiful Apartment In Miami"
                 required

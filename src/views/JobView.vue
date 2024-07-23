@@ -7,9 +7,6 @@ import { useToast } from 'vue-toastification';
 
 import axios from 'axios';
 
-
-// axios.defaults.headers.common['X-Jsio-Token'] = '5136442bcdf21bff99ea3197b29c1b91'
-
 const route = useRoute();
 const router = useRouter();
 const toast = useToast()
@@ -22,7 +19,7 @@ const deleteJob = async() =>{
   try {
     const confirm = window.confirm('Are you sure you want to delete this Job');
     if(confirm){
-        await axios.delete(`/api/jobs'/${jobId}`,header)
+        await axios.delete(`https://vue-jobs-06o8.onrender.com/jobs'/${jobId}`)
         toast.success('Job Deleted Successfully')
         router.push('/jobs')
     }
@@ -35,8 +32,9 @@ const deleteJob = async() =>{
 }
 onMounted(async () => {
   try{
-    const response = await axios.get(`'/api/jobs'/${jobId}`,header)
+    const response = await axios.get(`'https://vue-jobs-06o8.onrender.com/jobs/'${jobId}`)
     state.job = response.data;
+    console.log(state.job)
   }
   catch(error){
     console.error('Error Fetching Job', error)

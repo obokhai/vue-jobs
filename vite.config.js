@@ -11,7 +11,7 @@ export default defineConfig({
   server:{
     proxy: {
       '/api':{
-        target: 'http://localhost:5000',
+        target: 'https://vue-jobs-06o8.onrender.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
