@@ -46,7 +46,7 @@ const handleSubmit= async () => {
     }
   }
  try{
-  const response = await axios.put(`'https://vue-jobs-06o8.onrender.com/jobs/'${jobId}`, updatedJob);
+  const response = await axios.put(`https://vue-jobs-06o8.onrender.com/jobs/${jobId}`, updatedJob);
   toast.success('Job Updated Successfully')
   router.push(`/jobs/${response.data.id}`)
  }catch(error){

@@ -14,7 +14,6 @@ defineProps({
     }
 })
 
-// axios.defaults.headers.common['X-Jsio-Token'] = '5136442bcdf21bff99ea3197b29c1b91'
 
 const state = reactive({
     jobs:[],

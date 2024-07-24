@@ -36,9 +36,10 @@ const handleSubmit= async () => {
   }
  try{
   const response = await axios.post('https://vue-jobs-06o8.onrender.com/jobs',newJob)
-        state.jobs = response.data
+        // state.jobs = response.data
+        // console.log(state.jobs)
   toast.success('Job Added Successfully')
-  router.push(`/jobs/${state.jobs.id}`)
+  router.push(`/jobs`)
  }catch(error){
     console.error('Error Adding Job', error)
     toast.error('Job not added')
@@ -78,7 +79,7 @@ const handleSubmit= async () => {
                 >Job Listing Name</label
               >
               <input
-              v-model:="form.title "
+              v-model:="form.title"
                 type="text"
                 id="name"
                 name="name"
